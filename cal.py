@@ -1,51 +1,55 @@
 #!/usr/bin/python3
+import sys
 import math
 
-def square_root():
-    num = float(input("Enter the number: "))
-    result = math.sqrt(num)
-    print("Square root of", num, "is:", result)
+def square_root(num):
+    return math.sqrt(num)
 
-def factorial():
-    num = int(input("Enter the number: "))
-    result = math.factorial(num)
-    print("Factorial of", num, "is:", result)
+def factorial(num):
+    return math.factorial(num)
 
-def natural_logarithm():
-    num = float(input("Enter the number: "))
-    result = math.log(num)
-    print("Natural logarithm of", num, "is:", result)
+def natural_logarithm(num):
+    return math.log(num, math.e)
 
-def power_function():
-    base = float(input("Enter the base: "))
-    exponent = float(input("Enter the exponent: "))
-    result = math.pow(base, exponent)
-    print(base, "raised to the power", exponent, "is:", result)
+def power_function(base, exponent):
+    return math.pow(base, exponent)
 
 def main():
-    while True:
-        print("\nScientific Calculator Menu:")
-        print("1. Square root function - √x")
-        print("2. Factorial function - x!")
-        print("3. Natural logarithm (base е) - ln(x)")
-        print("4. Power function - x power b")
-        print("5. Exit")
+    if len(sys.argv) < 2:
+        print("Usage: cal.py <operation> [arguments]")
+        sys.exit(1)
 
-        choice = input("Enter your choice (1-5): ")
+    operation = sys.argv[1]
 
-        if choice == '1':
-            square_root()
-        elif choice == '2':
-            factorial()
-        elif choice == '3':
-            natural_logarithm()
-        elif choice == '4':
-            power_function()
-        elif choice == '5':
-            print("Exiting the program. Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please enter a number from 1 to 5.")
+    if operation == 'sqrt':
+        if len(sys.argv) < 3:
+            print("Usage: cal.py sqrt <number>")
+            sys.exit(1)
+        num = float(sys.argv[2])
+        square_root(num)
+    elif operation == 'factorial':
+        if len(sys.argv) < 3:
+            print("Usage: cal.py factorial <number>")
+            sys.exit(1)
+        num = int(sys.argv[2])
+        factorial(num)
+    elif operation == 'log':
+        if len(sys.argv) < 3:
+            print("Usage: cal.py log <number>")
+            sys.exit(1)
+        num = float(sys.argv[2])
+        natural_logarithm(num)
+    elif operation == 'power':
+        if len(sys.argv) < 4:
+            print("Usage: cal.py power <base> <exponent>")
+            sys.exit(1)
+        base = float(sys.argv[2])
+        exponent = float(sys.argv[3])
+        power_function(base, exponent)
+    else:
+        print("Invalid operation:", operation)
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
+
