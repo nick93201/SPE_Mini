@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Git') {
             steps {
-                git 'https://github.com/nick93201/SPE_MINIPROJECT'
+                git 'https://github.com/nick93201/SPE_Mini.git'
             }
         }
         stage('Build Code') {
