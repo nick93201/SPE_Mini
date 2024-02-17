@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Git') {
+            steps {
+                git 'https://github.com/nick93201/SPE_MINIPROJECT'
+            }
+        }
+        stage('Build Code') {
+            steps {
+                sh "chmod u+x cal.py"
+                sh "./Prog1.py"
+            }
+        }
+     stage('Test Code') {
+            steps {
+                sh "chmod u+x test.py"
+                sh "./test.py"
+            }
+        }
+    }
+}
+
