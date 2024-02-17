@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import unittest
 from calculator import square_root, factorial, natural_logarithm, power_function
 
