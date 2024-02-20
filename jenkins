@@ -43,14 +43,14 @@ pipeline {
             steps {
                 script {
                     ansiblePlaybook(
-                    colorized: true,
-                    installation: 'ansible',
-                    playbook: 'deploy.yml',
-                    inventory: 'inventory.ini'
+                        colorized: true,
+                        installation: 'ansible',
+                        playbook: 'deploy.yml',
+                        inventory: 'inventory.ini'
                     )
                 }
-            }
-        }
+            }
+        }
     } 
 }
 
