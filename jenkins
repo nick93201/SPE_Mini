@@ -39,6 +39,18 @@ pipeline {
                 }
             }
         }
+        stage('Run Ansible Playbook') {
+            steps {
+                script {
+                    ansiblePlaybook(
+                    colorized: true,
+                    installation: 'ansible',
+                    playbook: 'deploy.yml',
+                    inventory: 'inventory.ini'
+                    )
+                }
+            }
+        }
     } 
 }
 
