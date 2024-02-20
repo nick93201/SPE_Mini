@@ -1,55 +1,50 @@
 #!/usr/bin/python3
-import sys
 import math
 
 def square_root(num):
-    return math.sqrt(num)
+    result = math.sqrt(num)
+    print(result)
+    return result
 
 def factorial(num):
-    return math.factorial(num)
+    result = math.factorial(num)
+    print(result)
+    return result
 
 def natural_logarithm(num):
-    return math.log(num, math.e)
+    result = math.log(num, math.e)
+    print(result)
+    return result
 
 def power_function(base, exponent):
-    return math.pow(base, exponent)
+    result = math.pow(base, exponent)
+    print(result)
+    return result
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: cal.py <operation> [arguments]")
-        sys.exit(1)
+    print("Choose an operation:")
+    print("1. Square Root")
+    print("2. Factorial")
+    print("3. Natural Logarithm")
+    print("4. Power Function")
 
-    operation = sys.argv[1]
+    choice = int(input("Enter your choice (1/2/3/4): "))
 
-    if operation == 'sqrt':
-        if len(sys.argv) < 3:
-            print("Usage: cal.py sqrt <number>")
-            sys.exit(1)
-        num = float(sys.argv[2])
+    if choice == 1:
+        num = float(input("Enter a number: "))
         square_root(num)
-    elif operation == 'factorial':
-        if len(sys.argv) < 3:
-            print("Usage: cal.py factorial <number>")
-            sys.exit(1)
-        num = int(sys.argv[2])
+    elif choice == 2:
+        num = int(input("Enter a number: "))
         factorial(num)
-    elif operation == 'log':
-        if len(sys.argv) < 3:
-            print("Usage: cal.py log <number>")
-            sys.exit(1)
-        num = float(sys.argv[2])
+    elif choice == 3:
+        num = float(input("Enter a number: "))
         natural_logarithm(num)
-    elif operation == 'power':
-        if len(sys.argv) < 4:
-            print("Usage: cal.py power <base> <exponent>")
-            sys.exit(1)
-        base = float(sys.argv[2])
-        exponent = float(sys.argv[3])
+    elif choice == 4:
+        base = float(input("Enter the base: "))
+        exponent = float(input("Enter the exponent: "))
         power_function(base, exponent)
     else:
-        print("Invalid operation:", operation)
-        sys.exit(1)
+        print("Invalid choice")
 
 if __name__ == "__main__":
     main()
-
