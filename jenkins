@@ -14,8 +14,8 @@ pipeline {
             steps {
                 sh "chmod u+x cal.py"
                 sh 'printf "1\n25\n" | python3 cal.py'
-            }
-        }
+            }
+        }
         stage('Test Code') {
             steps {
                 sh "chmod u+x test.py"
