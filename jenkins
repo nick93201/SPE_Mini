@@ -1,15 +1,10 @@
-pipeline { 
+pipeline {
     agent any
     environment {
         DOCKER_IMAGE_NAME = 'calculator_python'
         GITHUB_REPO_URL = 'https://github.com/nick93201/SPE_Mini.git'
     }
     stages {
-        stage('Clone Git') {
-            steps {
-                echo "hello"
-            }
-        }
         stage('Build Code') {
             steps {
                 sh "chmod u+x cal.py"
@@ -51,6 +46,6 @@ pipeline {
                 }
             }
         }
-    } 
+    }
 }
 
